@@ -1,6 +1,6 @@
 # hexan
 
-<div style="width:100%;text-align:center;"> <img style="margin:auto;" src="https://repository-images.githubusercontent.com/290973689/6007ff80-e96f-11ea-886f-fd7a462b2066"> </div>
+<div style="width:100%;text-align:center;"> <img style="margin:auto;" src="https://repository-images.githubusercontent.com/290973689/5384a680-e971-11ea-9a1b-961bd9fd01f7"> </div>
 <br>
 
 * Use the system default browser
