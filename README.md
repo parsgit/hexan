@@ -1,5 +1,12 @@
 # hexan
 
+<br>
+
+* Use the system default browser
+* Execution file size 55 MB
+* Access native api (node v12)
+* Use Expressjs
+* Use Socket.io
 
 ### install
 
