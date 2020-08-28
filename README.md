@@ -7,6 +7,7 @@
 * Execution file size 55 MB
 * Access native api (node v12)
 * Express and Socket.io is used
+* HTML + CSS + JS + Node.js
 
 ### install
 
