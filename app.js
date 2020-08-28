@@ -17,16 +17,11 @@ exports.io = io;
 exports.port = 3000;
 exports.server = 'localhost';
 
-
-root_path = process.cwd();
-
-app.use('/node_modules', express.static(root_path + '/node_modules'));
-
 app.get('/socket.io/socket.io.js',(req,res)=>{
-  res.sendFile('node_modules/socket.io-client/dist/socket.io.js',{ root: root_path });
+  res.sendFile('node_modules/socket.io-client/dist/socket.io.js',{ root: process.cwd() });
 })
 
-exports.run = function (autoOpenBrowser=true) {
+exports.run =(autoOpenBrowser=true)=> {
   http.listen(exports.port, () => {
 
     console.log(`app listening at http://${exports.server}:${exports.port}`);
@@ -39,7 +34,7 @@ exports.run = function (autoOpenBrowser=true) {
 
 let countuser = 0;
 
-exports.onconnect = function (callback=false) {
+exports.onconnect =(callback=false)=>{
   io.on('connection', (socket) => {
     countuser++;
 
@@ -51,7 +46,7 @@ exports.onconnect = function (callback=false) {
   });
 }
 
-exports.ondisconnect = function (callback=false) {
+exports.ondisconnect =(callback=false)=> {
   eventEmitter.on('disconnect', callback);
 }
 
@@ -72,12 +67,18 @@ function ondisconnect(socket) {
 }
 
 
-exports.openBrowser=function() {
+exports.openBrowser=()=>{
   (async () => {
     // Opens the URL in the default browser.
     await open(`http://${exports.server}:${exports.port}`);
     })();
 }
+
+
+exports.setStatic=(_path,name)=>{
+  app.use(name, express.static(path.join(_path ,name)));
+}
+
 
 exports.close=()=>{
   process.exit();
