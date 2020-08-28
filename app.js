@@ -9,9 +9,10 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const path = require('path');
 
+exports.express = express;
+exports.http = http;
 exports.app = app;
 exports.io = io;
-exports.http = http;
 
 exports.port = 3000;
 exports.server = 'localhost';
@@ -61,8 +62,11 @@ function ondisconnect(socket) {
     eventEmitter.emit('disconnect',socket);
 
     if (countuser<=0) {
-      console.log('all user closed!');
-      exports.close();
+      setTimeout(function () {
+        if (countuser<=0)
+        exports.close();
+      },2000);
+
     }
   });
 }
